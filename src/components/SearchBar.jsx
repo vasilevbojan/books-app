@@ -1,17 +1,24 @@
 import React from "react";
+import { useState } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ setSearchWord }) => {
+  const [searchPhrase, setSearchPhrase] = useState("");
   return (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setSearchWord(searchPhrase);
+        setSearchPhrase("");
+      }}
+    >
       <input
         type="text"
         style={{ width: "100%", fontSize: "24px" }}
         placeholder="Search"
+        onChange={(e) => setSearchPhrase(e.target.value)}
+        value={searchPhrase}
       />
-      <button
-        type="submit"
-        style={{ margin: "10px", fontSize: "24px", padding: "5px" }}
-      >
+      <button style={{ margin: "10px", fontSize: "24px", padding: "5px" }}>
         Search
       </button>
     </form>

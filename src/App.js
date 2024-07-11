@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar setSearchWord={setSearchWord} />
-      <ListSection data={result} />
+      <ListSection data={result} searchWord={searchWord} />
     </div>
   );
 }

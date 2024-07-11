@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BookItem from "./BookItem";
 
-const ListSection = ({ data }) => {
+const ListSection = ({ data, searchWord }) => {
   const [sortOption, setSortOption] = useState("author");
   const sorted = data.sort((a, b) => {
     if (sortOption === "title") {
@@ -38,7 +38,7 @@ const ListSection = ({ data }) => {
       </div>
       <hr></hr>
       {sorted.map((book) => (
-        <BookItem key={book.id} book={book} />
+        <BookItem key={book.id} book={book} searchWord={searchWord} />
       ))}
     </>
   );

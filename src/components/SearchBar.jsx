@@ -8,6 +8,7 @@ const SearchBar = ({ setSearchWord }) => {
       onSubmit={(e) => {
         e.preventDefault();
         setSearchWord(searchPhrase);
+        console.log(searchPhrase);
         setSearchPhrase("");
       }}
     >

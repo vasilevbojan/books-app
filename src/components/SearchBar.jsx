@@ -8,7 +8,7 @@ const SearchBar = ({ setSearchWord }) => {
       onSubmit={(e) => {
         e.preventDefault();
         setSearchWord(searchPhrase);
-        console.log(searchPhrase);
+
         setSearchPhrase("");
       }}
     >
@@ -18,6 +18,7 @@ const SearchBar = ({ setSearchWord }) => {
         placeholder="Search"
         onChange={(e) => setSearchPhrase(e.target.value)}
         value={searchPhrase}
+        autoFocus
       />
       <button style={{ margin: "10px", fontSize: "24px", padding: "5px" }}>
         Search

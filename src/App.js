@@ -4,7 +4,6 @@ import ListSection from "./components/ListSection";
 import SearchBar from "./components/SearchBar";
 import React, { useState, useEffect } from "react";
 import data from "./data/books.json";
-import csvFile from "./data/books.csv";
 import Papa from "papaparse";
 
 const searchResults = (array, searchTerm) => {
@@ -19,35 +18,44 @@ const searchResults = (array, searchTerm) => {
 
 function App() {
   const [searchWord, setSearchWord] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   const [mergedData, setMergedData] = useState([]);
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch(csvFile);
-      const reader = response.body.getReader();
-      const result = await reader.read();
-      const decoder = new TextDecoder("utf-8");
-      const csv = decoder.decode(result.value);
-      const results = Papa.parse(csv, {
+      Papa.parse("./books.csv", {
         header: true,
+        download: true,
         dynamicTyping: (e) => (e === "id" ? true : false),
+        complete: (results) => {
+          data = results.data;
+          const mergedArray = data.concat(
+            results.data.filter((item2) => {
+              const found = data.find((item1) => item1.id === item2.id);
+              return !found;
+            })
+          );
+          setMergedData(mergedArray);
+          setIsLoading(false);
+        },
       });
-      const mergedArray = data.concat(
-        results.data.filter(
-          (item2) => !data.some((item1) => item1.id === item2.id)
-        )
-      );
-      setMergedData(mergedArray);
     }
     getData();
   }, []);
 
-  const result = searchResults(mergedData, searchWord);
+  const result = React.useMemo(
+    () => searchResults(mergedData, searchWord),
+    [mergedData, searchWord]
+  );
   return (
     <div className="App">
       <Header />
       <SearchBar setSearchWord={setSearchWord} />
-      <ListSection data={result} searchWord={searchWord} />
+      <ListSection
+        data={result}
+        searchWord={searchWord}
+        isLoading={isLoading}
+      />
     </div>
   );
 }

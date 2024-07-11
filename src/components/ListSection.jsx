@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BookItem from "./BookItem";
 
-const ListSection = ({ data, searchWord }) => {
+const ListSection = ({ data, searchWord, isLoading }) => {
   const [sortOption, setSortOption] = useState("author");
   const sorted = data.sort((a, b) => {
     if (sortOption === "title") {
@@ -12,6 +12,10 @@ const ListSection = ({ data, searchWord }) => {
       return a.genre.localeCompare(b.genre);
     }
   });
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <>
@@ -41,9 +45,20 @@ const ListSection = ({ data, searchWord }) => {
       </div>
       <hr></hr>
       <div>
-        {sorted.map((book) => (
-          <BookItem key={book.id} book={book} searchWord={searchWord} />
-        ))}
+        {sorted.length === 0 && searchWord.length > 0 ? (
+          <p>There is no results for your search</p>
+        ) : sorted.length === 0 && searchWord.length === 0 ? (
+          <>There are no books loaded</>
+        ) : (
+          sorted.map((book) => (
+            <BookItem
+              key={book.id}
+              book={book}
+              searchWord={searchWord}
+              isLoading={isLoading}
+            />
+          ))
+        )}
       </div>
     </>
   );

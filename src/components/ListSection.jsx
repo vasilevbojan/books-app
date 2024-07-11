@@ -16,15 +16,18 @@ const ListSection = ({ data, searchWord }) => {
   return (
     <>
       <h2>List</h2>
-      <select
-        name="sortBy"
-        onChange={(e) => setSortOption(e.target.value)}
-        value={sortOption}
-      >
-        <option value="title">Title</option>
-        <option value="author">Author</option>
-        <option value="genre">Genre</option>
-      </select>
+      <div style={{ textAlign: "start" }}>
+        <p>Sort by</p>
+        <select
+          name="sortBy"
+          onChange={(e) => setSortOption(e.target.value)}
+          value={sortOption}
+        >
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="genre">Genre</option>
+        </select>
+      </div>
       <div style={{ display: "flex" }}>
         <div style={{ width: "33%" }}>
           <h3>Title</h3>
@@ -37,9 +40,11 @@ const ListSection = ({ data, searchWord }) => {
         </div>
       </div>
       <hr></hr>
-      {sorted.map((book) => (
-        <BookItem key={book.id} book={book} searchWord={searchWord} />
-      ))}
+      <div>
+        {sorted.map((book) => (
+          <BookItem key={book.id} book={book} searchWord={searchWord} />
+        ))}
+      </div>
     </>
   );
 };

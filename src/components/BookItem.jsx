@@ -33,7 +33,6 @@ const highlightTermsToArray = (text, searchWord) => {
   if (lastIndex < text.length) {
     resultArray.push({ highlighted: false, text: text.slice(lastIndex) });
   }
-  console.log(resultArray);
   return resultArray;
 };
 

@@ -1,70 +1,76 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Books App
 
-## Available Scripts
+## Table of Contents
+- Introduction
+- Features
+- Instalation
+- Usage
 
-In the project directory, you can run:
 
-### `npm start`
+## Introduction
+Welcome to the Books App repository! This project is a web application that allows users to search, browse, and manage their book collections. It's built with modern web technologies to provide a seamless and interactive user experience.
+## Build with
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. Search Functionality:
+- The search bar allows the user to enter a search query and click a 'search' button to submit the query.
+2. Responsiveness:
+- Responsive webpage that displays properly on both desktop and mobile devices.
+3. Styling:
+- Styled using CSS that follows the BEM methodology.
+4. Sorting Options:
+- Dropdown menu to control how the books are sorted:
+    - Alphabetically by Title
+    - Alphabetically by Author Name (default)
+    - Alphabetically by Genre
+- Updates the sorting dynamically based on the selected option.
+5. Handling No Results:
+- Displays a "There are no books loaded" message if there is no books data in the files.
+- Displays a "There is no result for your search" message if the search query does not match any books.
+6. Highlighting Matches:
+- Highlights the search query matching parts of the Author Name, Title, or Genre by displaying the matching text in bold and red.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. Merging Data from JSON and CSV:
+- Loads the list of books from both books.json and books.csv files.
+- Merges the data based on a unique id field present in both files.
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get started with the Books App, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository:
+```bash
+git clone https://github.com/vasilevbojan/books-app.git
+```
+2.Navigate to the project directory:
+```bash
+cd books-app
+```
+3. Install the dependencies:
+```bash
+npm install
+```
+4. Run the application:
+```bash
+npm start
+```
+5. Open your browser and visit:
+```bash
+http://localhost:3000
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    
+## Authors
 
-### `npm run eject`
+- [@Bojan_Vasilev](https://github.com/vasilevbojan/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Bojan Vasilev - vasilevbojan@gmail.com
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project link: https://books-app-xi.vercel.app/

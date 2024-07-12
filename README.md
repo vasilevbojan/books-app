@@ -3,6 +3,7 @@
 
 ## Table of Contents
 - Introduction
+- Build with
 - Features
 - Instalation
 - Usage
@@ -15,30 +16,21 @@ Welcome to the Books App repository! This project is a web application that allo
 - React
 ## Features
 
-1. Search Functionality:
-- The search bar allows the user to enter a search query and click a 'search' button to submit the query.
-2. Responsiveness:
-- Responsive webpage that displays properly on both desktop and mobile devices.
-3. Styling:
-- Styled using CSS that follows the BEM methodology.
-4. Sorting Options:
-- Dropdown menu to control how the books are sorted:
-    - Alphabetically by Title
-    - Alphabetically by Author Name (default)
-    - Alphabetically by Genre
-- Updates the sorting dynamically based on the selected option.
-5. Handling No Results:
-- Displays a "There are no books loaded" message if there is no books data in the files.
-- Displays a "There is no result for your search" message if the search query does not match any books.
-6. Highlighting Matches:
-- Highlights the search query matching parts of the Author Name, Title, or Genre by displaying the matching text in bold and red.
+1. The search functionality allows users to input a query and initiate the search by clicking a dedicated 'search' button.
+2. The webpage is designed to be responsive, ensuring optimal display and functionality across both desktop and mobile devices.
+3. A dropdown menu dynamically adjusts the sorting criteria for organizing the book list.
+4. When no results are found:
+- It informs the user with a message stating "There are no books loaded" if the data files do not contain any book entries.
+- It notifies the user with a message indicating "Your search returned no results" if the entered query does not match any books in the database.
+5. Search queries are visually emphasized by highlighting the matching text in bold and red within the displayed results.
+6. Data sourced from JSON and CSV files is merged into a unified array of unique objects.
 
 
-7. Merging Data from JSON and CSV:
-- Loads the list of books from both books.json and books.csv files.
-- Merges the data based on a unique id field present in both files.
 
-## Getting Started
+
+
+
+## Instalation
 
 To get started with the Books App, follow these steps:
 

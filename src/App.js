@@ -31,7 +31,6 @@ function App() {
         download: true,
         dynamicTyping: (e) => (e === "id" ? true : false),
         complete: (results) => {
-          data = results.data;
           const mergedArray = data.concat(
             results.data.filter((item2) => {
               const found = data.find((item1) => item1.id === item2.id);

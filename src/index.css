@@ -1,0 +1,42 @@
+body {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.list {
+  margin: 0 auto;
+}
+
+.list .list_row {
+  display: flex;
+}
+
+.list .list_row .list_columns {
+  width: 33%;
+}
+
+.list .row_divider {
+  width: 90%;
+  border-color: rgba(211, 211, 211, 0.253);
+}
+
+.sort_select {
+  text-align: start;
+}
+
+.list_row .list_columns .highlited {
+  color: red;
+  font-weight: bold;
+}
+
+.search_input {
+  width: 100%;
+  font-size: 24px;
+}
+
+.search_button {
+  margin: 10px;
+  font-size: 24px;
+  padding: 5px;
+}

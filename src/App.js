@@ -8,7 +8,7 @@ import Papa from "papaparse";
 
 const searchResults = (array, searchTerm) => {
   return array.filter((obj) => {
-    return Object.values(obj).some(
+    return Object.values(obj).find(
       (value) =>
         typeof value === "string" &&
         value.toLowerCase().includes(searchTerm.toLowerCase())
@@ -21,6 +21,9 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [mergedData, setMergedData] = useState([]);
 
+  /*Downloads through Papa Parse, fetches the file itself from the public folder, 
+  processes it, and gives out the result in a complete callback. Then merges the data from book.json
+   and book.csv, returning an array with unique objects by ID */
   useEffect(() => {
     async function getData() {
       Papa.parse("./books.csv", {
@@ -48,7 +51,7 @@ function App() {
     [mergedData, searchWord]
   );
   return (
-    <div className="App">
+    <div>
       <Header />
       <SearchBar setSearchWord={setSearchWord} />
       <ListSection

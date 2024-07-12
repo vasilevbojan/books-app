@@ -1,11 +1,14 @@
 import React from "react";
 
-const highlightTermsToArray = (text, substring) => {
-  const wordRegex = new RegExp(substring, "gi");
+/* This function highlights the search word contained in the title, author, or genre
+   of the books. It uses regular expressions to match all words and returns an array
+   of objects with two keys: 'text' and 'highlight', indicating if the text should be highlighted.*/
+const highlightTermsToArray = (text, searchWord) => {
+  const wordRegex = new RegExp(searchWord, "gi");
   const resultArray = [];
   let lastIndex = 0;
 
-  if (substring.length === 0) {
+  if (searchWord.length === 0) {
     resultArray.push({
       highlighted: false,
       text: text,
@@ -30,6 +33,7 @@ const highlightTermsToArray = (text, substring) => {
   if (lastIndex < text.length) {
     resultArray.push({ highlighted: false, text: text.slice(lastIndex) });
   }
+  console.log(resultArray);
   return resultArray;
 };
 
@@ -50,50 +54,47 @@ const BookItem = ({ book, searchWord }) => {
   );
 
   return (
-    <div style={{ display: "flex" }}>
-      <div style={{ width: "33%" }}>
-        <p>
-          {bookTitle.map((obj) => (
-            <span
-              key={obj.text}
-              style={
-                obj.highlighted ? { color: "red", fontWeight: "bold" } : {}
-              }
-            >
-              {obj.text}
-            </span>
-          ))}
-        </p>
+    <>
+      <div className="list_row">
+        <div className="list_columns">
+          <p>
+            {bookTitle.map((obj) => (
+              <span
+                key={obj.text}
+                className={obj.highlighted ? "highlited" : ""}
+              >
+                {obj.text}
+              </span>
+            ))}
+          </p>
+        </div>
+        <div className="list_columns">
+          <p>
+            {bookAuthor.map((obj) => (
+              <span
+                key={obj.text}
+                className={obj.highlighted ? "highlited" : ""}
+              >
+                {obj.text}
+              </span>
+            ))}
+          </p>
+        </div>
+        <div className="list_columns">
+          <p>
+            {bookGenre.map((obj) => (
+              <span
+                key={obj.text}
+                className={obj.highlighted ? "highlited" : ""}
+              >
+                {obj.text}
+              </span>
+            ))}
+          </p>
+        </div>
       </div>
-      <div style={{ width: "33%" }}>
-        <p>
-          {bookAuthor.map((obj) => (
-            <span
-              key={obj.text}
-              style={
-                obj.highlighted ? { color: "red", fontWeight: "bold" } : {}
-              }
-            >
-              {obj.text}
-            </span>
-          ))}
-        </p>
-      </div>
-      <div style={{ width: "33%" }}>
-        <p>
-          {bookGenre.map((obj) => (
-            <span
-              key={obj.text}
-              style={
-                obj.highlighted ? { color: "red", fontWeight: "bold" } : {}
-              }
-            >
-              {obj.text}
-            </span>
-          ))}
-        </p>
-      </div>
-    </div>
+      <hr className="row_divider"></hr>
+    </>
   );
 };
 

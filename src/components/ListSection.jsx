@@ -20,7 +20,7 @@ const ListSection = ({ data, searchWord, isLoading }) => {
   return (
     <>
       <h2>List</h2>
-      <div style={{ textAlign: "start" }}>
+      <div className="sort_select">
         <p>Sort by</p>
         <select
           name="sortBy"
@@ -32,33 +32,36 @@ const ListSection = ({ data, searchWord, isLoading }) => {
           <option value="genre">Genre</option>
         </select>
       </div>
-      <div style={{ display: "flex" }}>
-        <div style={{ width: "33%" }}>
-          <h3>Title</h3>
+      <div className="list">
+        <div className="list_row">
+          <div className="list_columns">
+            <h3>Title</h3>
+          </div>
+          <div className="list_columns">
+            <h3>Author</h3>
+          </div>
+          <div className="list_columns">
+            <h3>Genre</h3>
+          </div>
         </div>
-        <div style={{ width: "33%" }}>
-          <h3>Author</h3>
+        <hr></hr>
+        <div>
+          {/*this handles cases to show that there is no results from search or there is no books loaded from the given data*/}
+          {sorted.length === 0 && searchWord.length > 0 ? (
+            <p>There is no results for your search</p>
+          ) : sorted.length === 0 && searchWord.length === 0 ? (
+            <>There are no books loaded</>
+          ) : (
+            sorted.map((book) => (
+              <BookItem
+                key={book.id}
+                book={book}
+                searchWord={searchWord}
+                isLoading={isLoading}
+              />
+            ))
+          )}
         </div>
-        <div style={{ width: "33%" }}>
-          <h3>Genre</h3>
-        </div>
-      </div>
-      <hr></hr>
-      <div>
-        {sorted.length === 0 && searchWord.length > 0 ? (
-          <p>There is no results for your search</p>
-        ) : sorted.length === 0 && searchWord.length === 0 ? (
-          <>There are no books loaded</>
-        ) : (
-          sorted.map((book) => (
-            <BookItem
-              key={book.id}
-              book={book}
-              searchWord={searchWord}
-              isLoading={isLoading}
-            />
-          ))
-        )}
       </div>
     </>
   );

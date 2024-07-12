@@ -8,21 +8,18 @@ const SearchBar = ({ setSearchWord }) => {
       onSubmit={(e) => {
         e.preventDefault();
         setSearchWord(searchPhrase);
-
         setSearchPhrase("");
       }}
     >
       <input
         type="text"
-        style={{ width: "100%", fontSize: "24px" }}
+        className="search_input"
         placeholder="Search"
         onChange={(e) => setSearchPhrase(e.target.value)}
         value={searchPhrase}
         autoFocus
       />
-      <button style={{ margin: "10px", fontSize: "24px", padding: "5px" }}>
-        Search
-      </button>
+      <button className="search_button">Search</button>
     </form>
   );
 };
